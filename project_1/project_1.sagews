@@ -23,10 +23,12 @@ h(x) = sin(x)
 # Third, we will plot the function from -2*pi to +2*pi and store the plot in a variable called the_plot
 the_plot = plot( h, (x,-2*pi,2*pi) )
 # Fourth, save the plot as a PDF that we can import into other documents
-filename = os.path.join('/projects/629d202e-792b-4a3a-9968-b21046327c37/','project_1','sin_plot.pdf')
-the_plot.save(filename)
+#filename = os.path.join('/projects/629d202e-792b-4a3a-9968-b21046327c37/','project_1','sin_plot.pdf')
+the_plot.save('sin_plot.pdf')
 # Fifth, let's show the plot in this worksheet
 show(the_plot)
+︡ad9fcf62-de12-4b9b-a7c6-8470b120ff41︡{"once":false,"file":{"show":true,"uuid":"cfe2d544-be15-4dd4-9f47-1d20b1fc63be","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute19dc0/3414/tmp_rZbab3.svg"}}︡
+︠2433026f-64f1-42fb-9070-06df67439d48︠
 
 
 

@@ -61,7 +61,15 @@ func_plot.save('func_plot.pdf')
 # You will need to use the same command as in project_1 for including the graph in your report.
 # There should be a template tex file in the project_2 folder to help you with this.
 ︡68822ba1-2a45-4d13-b274-96b182d4df49︡{"md":"# The rest of the project should just use variations of these commands.\n# Play around! That's the way people learn something new.\n# You will need to use the same command as in project_1 for including the graph in your report.\n# There should be a template tex file in the project_2 folder to help you with this.\n"}︡
-︠2dab0d92-413d-440d-827a-6053b671026d︠
+︠2dab0d92-413d-440d-827a-6053b671026di︠
+%md
+# Last thing -- You need a title and axes labels on all graphs
+# Here's how you do that.
+︡a042b05b-876b-4777-aaff-1caac7013c02︡{"md":"# Last thing -- You need a title and axes labels on all graphs\n# Here's how you do that.\n"}︡
+︠a308810a-57f8-4306-9e12-ba86fb35c1f8︠
+plot([P,t] , (x,-2,2) , title="The Polynomial" , title_pos=(0.25,1) , axes_labels=['$x$','$P(x)$'])
+︡751f30c3-4425-4294-877a-2bf2fdb41abb︡{"once":false,"file":{"show":true,"uuid":"11d700c6-e77d-4c55-8549-91359049cb0a","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute19dc0/26939/tmp_OCrwcw.svg"}}︡
+︠efa301b2-3961-4d22-abe1-7ae9f8204369︠
 
 
 

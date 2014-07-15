@@ -1,0 +1,64 @@
+%%%%%%
+%
+% PROJECT 2 - Finding the Zero of a Polynomial
+%
+% filename: project_1.tex
+% last modified: 2014-7-14
+%
+%%%%%%%
+%
+% 
+%
+% 
+%
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+\newtheoremstyle{mydef}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}
+{\newline}
+{%
+  \rule{\textwidth}{0.4pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.4pt}}%
+
+\theoremstyle{mydef}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\section{Advanced Calculus Project 2: Finding the Zero of a Polynomial}
+
+\newthought{Consider the polynomial} $P(x)=x^3+3x-1$. Your goal is to find a zero of this function: i.e., a number $a$ such that $P(a)=0$. Although there is an algebraic technique for finding a zero of a cubic polynomial, we are going to approximate a zero. We want the approximation to be within $10^{-2}$ of an actual zero.
+
+To begin, show that the equation $P(x)=0$ has at least one solution in the interval $[-1,1]$. You must give a good justification that such a solution exists.
+
+On way to approximate a solution is to bisect the interval $[-1,1]$, determine whether $P(x)=0$ has a solution in $[-1,0]$ or $[0,1]$ (as you did in the previous step), and then repeat the process with the new interval containing a solution. How many times must you repeat the bisection process to have a sufficiently accurate answer? Find such an answer. Be sure you understand what it means to bisect an interval.
+
+Calculus gives us another way to perform the search. We use the idea that the tangent line is a good approximation to the graph of a function.
+
+\begin{definition}[The Tangent Line]
+The line tangent to the curve with equation $y=f(x)$ at a point $\left(a,f(a)\right)$ on the curve is the line through $\left(a,f(x)\right)$ with slope $f'(a)$. We call this line a tangent line.
+\end{definition}
+
+Let $y=f(x)$ be a function of $x$. What is the equation of the line tangent to the graph of $f$ at $\left(a,f(x)\right)$? What is the $x$-intercept of this tangent line? Draw a picture to demonstrate what is going on.
+
+Now return to the original problem. Begin with one of the end points of the original interval; this is your original guess. Apply the operation in the previous step, obtaining the $x$-intercept of the tangent line as a new guess, which hopefully is a better approximation to a solution of the equation $x^3+3x-1=0$ than the end point you started with. Is this answer within the desired margin of error from the answer you obtained using the method of bisection? When you get an answer within the marign of error you may stop. Otherwise, repeat the operation, this time beginning with your latest guess.
+
+Compare the two techniques for finding a solution. Which is easier to understand? Why? Which is faster -- that is, which leads to an answer within the desired degree of accuracy in the fewest number of iterations?
+
+Instead of using a tangent line, we could use a ``tangent quadratic.'' How would you define the tangent quadratic? Would it work in place of the tangent line? What problems would arise? How do you think it would compare to the two techniques above? 
+\end{document}

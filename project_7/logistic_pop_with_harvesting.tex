@@ -1,0 +1,88 @@
+%%%%%%
+%
+% PROJECT 5 - LOGISTIC POPULATION MODELS WITH HARVESTING
+%
+% filename: logistic_pop_with_harvesting.tex
+% last modified: 2013-11-11
+%
+%%%%%%%
+%
+% IN THIS PROJECT, STUDENTS HAVE TO MODEL THE POPULATION WITH A LOGISTIC MODEL
+% TAKING INTO CONSIDERATION HARVESTING AT DIFFERENT RATES.
+%
+% BLANCHARD, PAGES 144-145.
+%
+%%%%%%%
+%
+% TODO:
+% 1. PERHAPS MAKE IT CLEARER THAT I WANT STUDENTS TO INVESTIGATE AND DESCRIBE
+%    WHAT WILL HAPPEN IN THE PERIODIC HARVESTING MODEL. HOW OFTEN CAN WE HARVEST?
+%    HOW CAN WE HIT A TARGET POPULATION AND MAINTAIN THAT POPULATION? WHAT
+%    ABOUT THE DIFFERENCES IN FISH FARMS VERSUS A NORMAL ECOLOGICAL SYSTEM?
+%
+% 
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\includegraphics[scale=0.3]{fish.png}
+\section{Advanced Calculus Project 5: Logistic Population Growth with Harvesting}
+
+\newthought{Logistic Models of} population growth can be very useful in modeling population growth in an environment with finite resources. In some cases, we may want to also ``harvest'' part of the population at regular intervals. In particular, you should imagine a fish population subject to various degrees and types of fishing. The differential equation models are given below. In your report, you should include a discussion of the meaning of each variable and parameter and an explanation of why the equation is written the way it is.
+
+We have discussed three general approaches that can be employed to study a differential equation: Numerical techniques yield graphs of approximate solutions, geometric/qualitative techniques provide predictions of the long-term behavior of the solution and in special cases analytic techniques provide explicit formulas of the solution. In your report, you should employ as many of these techniques as is appropriate to help understand the models, and you should consider the following three equations:
+
+Please refer to the table at the end of this assignment for a list of choices for the parameters $k$, $N$, $a_1$, and $a_2$. Each row of this table can be considered as a ``harvesting option.''
+
+\begin{enumerate}
+	\item (Logistic growth with constant harvesting) The equation
+	\[
+		\displaystyle\frac{dp}{dt}=kp\left(1-\displaystyle\frac{p}{N}\right) - a
+	\]
+	
+	represents a logistic model of population growth with constant harvesting at a rate $a$. For $a=a_1$, what will happen to the fish population for various initial conditions? (Note: This equation is autonomous, so you can take advantage of the special techniques that are available for autonomous equations.)
+	
+	\item (Logistic growth with periodic harvesting) The equation
+	\[
+		\displaystyle\frac{dp}{dt}= kp\left(1-\displaystyle\frac{p}{N}\right) - a\left(1+\sin(bt)\right)
+	\]
+	
+	is a nonautonomous equation that considers periodic harvesting. What will the parameters $a$ and $b$ represent? Let $b=1$. If $a=a_1$, what will happen to the fish popultion for various initial conditions?
+	
+	\item Consider the same equation as in Part 2 above, but let $a=a_2$. What will happen to the fish population for various initial conditions with this value of $a$?	
+	
+\end{enumerate}
+
+\textbf{Your report:} In your report you should address these three questions, one at a time, in the form of a short essay. Begin Questions 1 and 2 with a description of the meaning of each of the variables and parameters and an explanation of why the differential equation is the way it is. You should include pictures and graphs of data and of solutions of your models as appropriate. (Remember that one carefully chosen picture can be worth a thousand words, but a thousand pictures aren't worth anything.)
+
+\begin{fullwidth}
+\begin{table}
+\begin{tabular}{ccccc}
+\toprule
+Choice & $k$ & $N$ & $a_1$ & $a_2$ \\
+\midrule
+1 & 0.25 & 4 & 0.16 & 0.25 \\
+2 & 0.50 & 2 & 0.21 & 0.25 \\
+3 & 0.20 & 5 & 0.21 & 0.25 \\
+4 & 0.20 & 5 & 0.16 & 0.25 \\
+5 & 0.25 & 4 & 0.09 & 0.25 \\
+6 & 0.20 & 5 & 0.09 & 0.25 \\
+7 & 0.50 & 2 & 0.16 & 0.25 \\
+8 & 0.20 & 5 & 0.24 & 0.25 \\
+9 & 0.25 & 4 & 0.21 & 0.25 \\
+10 & 0.50 & 2 & 0.09 & 0.25 \\
+\bottomrule
+\caption{\label{param1} Possible choices for the parameters}
+\end{tabular}
+\end{table}
+\end{fullwidth}
+
+\end{document}

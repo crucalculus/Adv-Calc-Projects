@@ -1,0 +1,61 @@
+%%%%%%
+%
+% PROJECT 4 - ASTRONOMERS USE PARABOLIC MIRRORS
+%
+% filename: astronomers_use_parabolic_mirrors.tex
+% last modified: 2014-7-16
+%
+%%%%%%%
+%
+%
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+
+\newtheoremstyle{mydef}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}
+{\newline}
+{%
+  \rule{\textwidth}{0.4pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.4pt}}%
+
+\theoremstyle{mydef}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\section{Advanced Calculus Project 4: Astronomers Use Parabolic Mirrors}
+\newthought{The star nearest our sun} is Alpha Centauri, which is about 4 light years from earth. Alpha Centauri is so far away that when its light reaches earth, it is traveling in essentially parallel rays. To observe distant stars, astronomers use mirrors shaped like paraboloids, which are parabolas rotated about their axes. The reason they use a paraboloidal mirror is that it focuses all the light to a single point, the ``focus.'' (This point is the image of the star in the paraboloidal mirror.) In this project you will demonstrate the focusing property of parabolas.
+
+Suppose our mirror in shaped like the parabola $y=kx^2$, where $k$ is any positive constant. Find the coordinates of its focus and the equation of its directrix in terms of $k$.
+
+\begin{definition}[The Tangent Line]
+The line tangent to the curve with equation $y=f(x)$ at a point $\left(a,f(a)\right)$ on the curve is the line through $\left(a,f(x)\right)$ with slope $f'(a)$. We call this line a tangent line.
+\end{definition}
+
+The following guided questions are meant to stimulate your thinking about what's going on. Your first step should be to sketch answers to these questions on notebook paper and let their answers guide the development of your report. As always, your report should contain an abstract and conclusion. Your report should flow from beginning to end and represent a smooth transition between ideas to arrive at your conclusion: that astronomers use parabolic mirrors to look at stars.
+
+Find the equation of the line tangent to the parabola at a point $(x_0,y_0)$ on the parabola. Then find the $y$-intercept of the tangent line.
+
+Consider the triangle formed by a point $(x_0,y_0)$ on the parabola, the $y$-intercept of the tangent line at this point, and the focus. Plot a picture of this triangle. Prove the triangle is isosceles.
+
+Suppose an incoming light ray strikes a parabola at a point $(x_0,y_0)$. If the light ray makes an angle $\gamma$ with respect to the tangent line, then it is reflected at an equal angle to the tangent line. This result from physics is known by the phrase ``the angle of incidence equals the angle of reflection.'' Using this fact, argue that incoming light rays parallel to the axis of the parabola are all reflected to the focus, independent of the point of incidence. Thus, a parabolic mirror focuses incoming light rays parallel to the axis to a point.
+
+The path followed by a ray of light from the star to the focus of the mirror has another special property. Draw a chord of the parabola that is above the focus and parallel to the directrix. Consider a ray of light parallel to the axis as it crosses the chord, hits the parabola and is reflected to the focus. Let $d_1$ be the distance from the chord to the point of incidence $(x_0,y_0)$ on the parabola and let $d_2$ be the distance from $(x_0,y_0)$ to the focus. Show that the sum of the distances $d_1+d_2$ is constant, independent of the particular point of incidence. Since light travels at constant velocity, explain why this special property is very relevant for astronomers.
+
+Extend your argument from the parabolic cross section to the entire paraboloidal mirror, obtained by rotating this cross section about the $y$-axis. Thus, prove that all incident rays parallel to the axis of such a mirror focus to a point. Also prove that light traveling along different rays to the focus from a chord perpendicular to the axis will have travelled the same distance, even though these rays were reflected from different points of incidence on the mirror. Thus all of the light waves will arrive in phase, and so interfere constructively to produce a nice bright spot as the image of the star.
+
+\end{document}

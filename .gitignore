@@ -6,3 +6,6 @@
 *.bbl
 *.blg
 *.fdb_latexmk
+*backup
+*chat
+*term

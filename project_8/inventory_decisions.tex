@@ -1,0 +1,65 @@
+%%%%%%
+%
+% PROJECT 7 - INVENTORY DECISIONS
+%
+% filename: inventory_decisions.tex
+% last modified: 2013-12-23
+%
+%%%%%%%
+%
+% IN THIS PROJECT, STUDENTS INVESTIGATE HOW A COMPANY PURCHASES AND USES PAPER.
+% BALANCES BETWEEN INVENTORY AND SHIPPING COSTS ARE CONSIDERED.
+% INTEGRATION REQUIRED, I THINK.
+%
+% PROBLEMS FOR STUDENT INVESTIGATION PAGE 95
+%
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\section{Advanced Calculus Project 7: Inventory Decisions}
+
+\newthought{A computer services firm} regularly uses many cartons of computer paper. They purchase the cartons in quantity from a discount supplier in another city at a cost of \$22.46 per carton, store them in a rented warehouse near company grounds and use the paper gradually as needed. There is some confusion among company managers as to how often and in what quantity paper should be ordered. On one hand, since the supplier is providing out-of-town delivery by truck, there is a basic \$360 charge for every order regardless of the number of cartons purchased, assuming the order is for no more that 3,000 cartons (the truck's capacity). This cost has been used by some managers as an argument for placing large orders as infrequently as possible.
+
+On the other hand, as other managers have argued, large orders lead to large warehouse inventories and associated costs of at least two kinds that should be considered. First, they claim, whatever money is used to pay for paper that will only sit in the warehouse for a long time could instead, for a while at least, be allocated to some profit producing activity. At the very least such money could be accumulating interest in a bank account. This loss of investment opportunity and associated earnings is referred to as the ``opportunity cost'' resulting from the investment in paper inventory. Secondly, the company has to pay rent for the warehouse. While other company property is stored there as well, the managers agree that a fraction of the rent equal to the fraction of the warehouse space occupied by paper should be viewed as part of the cost of storing paper. These latter two costs, collectively referred to as the inventory ``holding cost'' and estimated to be 18 cents per carton per week, have been used to justify claims by some that paper orders should be smaller and placed more frequently. In hopes of resolving the confusion, the managers have hired you as a consultant.
+
+After talking more with various company personnel, asking many questions and inspecting company records, you have accumulated the following summary notes. Use them along with additional modeling and analysis as the basis for a report to the managers recommending in what quantity and how often paper should be ordered. Your explanation should target the typical manager who has only a basic mathematical understanding. The specific challenge for you in this report is to effectively use Calculus to derive a solution while at the same time explaining why your technique is valid.
+
+\newpage
+
+\textbf{Note 1:} Company data on the number of cartons used per week is shown below. No one seems to think usage rate will change in any significant way.
+\vspace{0.1in}
+
+\begin{tabular}{|c c|c c|c c|c c|c c|c c|}
+    \hline
+    Week & No. & Week & No. & Week & No. & Week & No. & Week & No. & Week & No. \\
+    1 & 150 & 10 & 152 & 19 & 149 & 28 & 150 & 37 & 151 & 46 & 152 \\
+    2 & 149 & 11 & 150 & 20 & 150 & 29 & 147 & 38 & 148 & 47 & 151 \\
+    3 & 150 & 12 & 149 & 21 & 150 & 30 & 152 & 39 & 150 & 48 & 148 \\
+    4 & 151 & 13 & 149 & 22 & 150 & 31 & 150 & 40 & 150 & 49 & 150 \\
+    5 & 153 & 14 & 150 & 23 & 150 & 32 & 151 & 41 & 149 & 50 & 150 \\
+    6 & 150 & 15 & 150 & 24 & 152 & 33 & 148 & 42 & 152 & 51 & 151 \\
+    7 & 148 & 16 & 150 & 25 & 150 & 34 & 151 & 43 & 150 & 52 & 147 \\
+    8 & 150 & 17 & 151 & 26 & 148 & 35 & 150 & 44 & 149 &    &     \\
+    9 & 150 & 18 & 150 & 27 & 151 & 36 & 150 & 45 & 147 &    &     \\
+    \hline
+\end{tabular}
+\vspace{0.1in}
+
+\textbf{Note 2:} We should not let the paper supply run out. Managers agree that a work stoppage would be disastrous for customer relations, so paper would be purchased from a local source rather than allowing a stoppage to occur. The best local price is \$46.90 per carton compared to \$22.46 from the usual discount supplier.
+
+\textbf{Note 3:} The discount supplier is very reliable about providing quick delivery. When an order is placed in the morning, she has never failed to deliver before 5 P.M. the same day. It seems safe to count on this. So in modeling, for simplicity, we can assume that the new order arrives just as the last stored carton is used.
+
+\textbf{Note 4:} Managers seem to agree that the goal in deciding how much and how often to order should be to minimize average weekly cost associated with the purchase and storage of paper. Average weekly cost has three constituents: purchase cost (\$22.46 $\times$ number of cartons ordered per week), delivery cost (\$360 $\times$ number of orders per week), and holding cost. When pushed to be more precise about holding cost, manager consensus was that average holding cost per week should be measured as 18 cents per carton per week times the average inventory between orders (i.e. the average number of cartons stored in the warehouse from the time one order arrives to the time the next order arrives).
+
+\textbf{Note 5:} It probably will simplify modeling and analysis to assume that the inventory level (the number of boxes stored) and time are continuous rather than discrete variables. That is, instead of assuming the time and inventory variables can only take on integer values representing weeks and boxes, assume they can take on any non-negative real number values. That way, if the usage rate is assumed to be constant (seems reasonable in view of the data in Note 1), the inventory level can be modeled as a piecewise linear function.
+
+\end{document}

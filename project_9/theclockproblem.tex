@@ -1,0 +1,46 @@
+%%%%%%
+%
+% PROJECT 9 - THE CLOCK PROBLEM
+%
+% filename: theclockproblem.tex
+% last modified: 2013-12-24
+%
+%%%%%%%
+%
+% IN THIS PROJECT, STUDENTS LOOK AT HOW THE DISTANCE BETWEEN THE
+% TIPS OF THE MINUTE AND HOUR HAND CHANGES THROUGHOUT THE DAY.
+%
+% COHEN PAGE 207.
+%
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\section{Advanced Calculus Project 9: The Clock Problem}
+
+\newthought{An analog clock} is a relatively simple device. For the purposes of this project, let's assume the hour hand measures $h$ centimeters and the minute hand measures $m$ centimeters. We will not consider a second hand for this problem. Although most analog clocks ``tick,'' please assume that the motion of both hands is continuous.
+
+Your task is simple. Derive an equation that describes how the distance between the tip of the hour hand and the tip of the minute hand changes with time. What this means is that you will first need a function that returns the distance between the hour and minute hand. You can differentiate this function to find how fast that distance is changing. You will want to show the derivation with the general lengths $h$ and $m$, but when it comes time to plot the function we will need actual values. For this part, please use $10$ cm for the minute hand and $6$ centimeters for the hour hand.
+
+Your report must contain the derivation of the equation and the graph, along with detailed explanation of how you obtained both. As with all the other projects, there are multiple ways to derive the equation. However, in this project there is only one answer. The path to that answer is what counts! Look for something simple and elegant.
+
+You must also answer the following questions in your report:
+\begin{enumerate}
+  \item At what times are the hour and minute hand directly on top of one another?
+  \item At what times is the distance changing the fastest?
+  \item At what times is the distance changing the slowest?
+  \item Provide the answer to at least one more original question that you have about this situation.
+\end{enumerate}
+
+
+As a bonus, interpret how changing the lengths of the hour and minute hand impacts the rate of change of the distance between them. For example, if the hour hand lengthens by $1$ cm, the rate of change is decreased by $0.5$ cm per second.
+
+\end{document}

@@ -1,0 +1,56 @@
+% PROJECT 3
+%
+\documentclass[11pt]{article}
+\usepackage{../support_files/advanced_calc}
+\begin{document}
+%%%%%%  MAKE NO EDITS ABOVE THIS LINE!  %%%%%%%%
+\makereporttitle{Project 3}
+\yourname{Your name goes here}
+\today
+
+\begin{report}
+\section{Abstract}
+This is where you will place the Abstract for your project report.
+
+\section{Procedure}
+This is where you will place the Procedure you used for the project. Remember that this should be in paragraph style. You can include any equations you like by using the following template example:
+
+\[
+    P(x) = x^3 + 3x - 1
+\]
+
+You can also include equations in-line with sentences like this: $P(x)=x^3+3x-1$.
+
+You will need to include graphs, as they are an important part of the report. The sage worksheet reminds you how to generate and save graphs as PDF documents.
+
+The line below is what pulls the PDF graph into this document.
+
+In this project, we will use the figure environment to wrap our graphs and pictures. This will do three things:
+\begin{enumerate}
+    \item You will be able to have a subtitle on the graph with a figure number.
+    \item The figure can be referenced in the text of your report.
+    \item The figure may start to move, depending on the text of your report.
+\end{enumerate}
+
+\begin{figure}
+\includegraphics[width=10cm]{func_plot.pdf}
+\caption{\label{l_func_plot} A Function Plot}
+\end{figure}
+
+Here is how we can reference the figure in your text. Please refer to Figure \ref{l_func_plot} for a nice looking graph. Notice that the figure number is automatically updated. What this means is that you can have a report with multiple graphs, all referenced using keywords rather than numbers, and when changes are made, the figure numbers will update automatically.
+
+Please notice the command that specifies the width. You can set this to any dimension you like. I have it set for a width of 10cm. As you work on your report, you will want to change this width to make your graph look appropriately sized.
+
+Please keep in mind that you can also change how the graph looks in the sage worksheet by changing the domain $(x,-2,2)$ to something else. In fact, that will probably be what you need to do in order to show multiple iterations of the root-finding process.
+
+\section{Conclusion}
+This is where you will place the conclusion of your report. This section should be a summary of your results as well as your own interpretation of their potential usefulness.
+
+For example, after finding the tangent quadratic, your conclusion may be that there is no improvement over using the tangent line. You will want to explain your thinking and reference things that you did in the procedure section to back up your claim.
+
+\end{report}
+
+\end{document}
+
+%sagemathcloud={"zoom_width":95}
+

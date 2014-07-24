@@ -20,6 +20,8 @@ plot(P , (x,-2,2)) # then we plot P and specify a domain of [-2,2] because accor
 # You will need to come up with some type of test to determine this.
 # Not only for the first iteration of [-1,1] but for each successive iteration.
 ︡3cbee40d-fd6c-46ee-908b-4f81f96d49f3︡{"md":"# The Bisection method comes first.\n# Think about how you can determine whether the zero is in [-1,0] or [0,1]\n# You will need to come up with some type of test to determine this.\n# Not only for the first iteration of [-1,1] but for each successive iteration.\n"}︡
+︠a18ccb77-ca6f-4e86-ad9e-06d8eb8c71f4︠
+
 ︠d18a3a26-451b-4d32-87ce-e7de73b88500i︠
 %md
 # Now, let's look at the Calculus part.

@@ -1,0 +1,52 @@
+%%%%%%
+%
+% PROJECT 12 - Prednisone in the Body
+%
+% filename: prednisone.tex
+% last modified: 2014-2-9
+%
+%%%%%%%
+%
+% USING IDEAS OF SERIES AND AMOUNT OF DRUG IN THE BODY,
+% THIS PROJECT HAS STUDENTS INVESTIGATING WHAT HAPPENS TO THE
+% CONCENTRATION OF PREDNISONE (TAKEN FOR ASTHMA) IN THE BODY
+% OVER TIME.
+%
+% HH, PAGE 503
+%
+%%%%%%%
+
+\documentclass
+[justified,nohyper]
+{tufte-handout}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\section{Advanced Calculus Project 12: Prednisone}
+
+\newthought{Prednisone} is often prescribed for acute asthma attacks and suppresses the immune system. For 5 mg tablets, typical instructions are: ``Take 8 tablets the first day, 7 the second, and decrease by one tablet each day until all tablets are gone.'' Prednisone decays exponentially in the body. This looks like regular exponential decay that we have studied previously. However, in a medical context we will develop the idea of biological half-life. The biological half-life of a substance is the time it takes for the substance to lose half of its pharmacologic activity. The Wikipedia page for biological half-life provides some additional detail, if you're interested. For prednisone, the biological half-life is one hour.
+
+Let $x(t)$ represent the amount of prednisone (in mg) in the body at time $t$.
+
+\begin{enumerate}
+  \item Write formulas involving $x$, for the amount of prednisone in the body:
+  \begin{enumerate}
+  \item 24 hours after taking the first dose (of 8 tablets), right before taking the second dose (of 7 tablets).
+  \item Immediately after taking the second dose (of 7 tablets).
+  \item Immediately after taking the third dose (of 6 tablets).
+  \item Immediately after taking the eighth dose (of 1 tablet).
+  \item 24 hours after taking the eighth dose.
+  \item $n$ days after taking the eighth dose.
+\end{enumerate}
+    \item Find a closed form\sidenote{\url{http://goo.gl/LrqoCG}} for the amount of prednisone in the body immediately after taking the eighth dose.
+    \item If a patient takes all the prednisone tablets as prescribed, how many days after taking the eighth dose is there less than 3\% of a prednisone tablet in the patient's body?
+    \item A patient is prescribed $n$ tablets of prednisone the first day, $n-1$ the second, and one tablet fewer each day until all the tablets are gone. Write a formula that represents $T_n$, the number of prednisone tablets in the body immediately after taking the final dose. Find a closed form sum for $T_n$.
+
+\end{enumerate}
+
+
+\end{document}

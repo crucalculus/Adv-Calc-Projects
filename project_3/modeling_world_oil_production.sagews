@@ -1,7 +1,7 @@
 ︠e5244976-fd2f-4ebd-ab95-73e8ca007cd6i︠
 %md
-# You will need to plot logistic functions and their slope fields.
-︡73ef543a-d391-4a71-adb2-37b3d9f634aa︡{"md":"# You will need to plot logistic functions and their slope fields.\n"}︡
+# You will need to plot logistic functions.
+︡393ef312-b830-4b03-b86f-7f4d26d71e1e︡{"md":"# You will need to plot logistic functions.\n"}︡
 ︠0be9ad30-8386-4f0e-a3d5-4642877dda66︠
 t = var('t')
 def p(t):
@@ -10,8 +10,8 @@ plot(p, (t,8,80), title="Elk Population", title_pos=(0.75,0.5), axes_labels=['$t
 ︡971f7d36-9d45-4c3a-bdbc-b5960c13c504︡{"once":false,"file":{"show":true,"uuid":"ce65af15-2b4c-4f34-b8a0-e3d985447d4e","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute19dc0/32675/tmp_WidVGR.svg"}}︡
 ︠ea70dc7a-0363-4847-bddd-a10aae96d0f2i︠
 %md
-# You may also want to plot the slope field for the differential equation
-︡09d6995c-e31e-4baf-9689-b257cb12718e︡{"md":"# You may also want to plot the slope field for the differential equation\n"}︡
+# You may also want to plot the slope field for the differential equation whose solution is a logistic function.
+︡9346ec73-937b-401a-9619-d5051ce3dd0a︡{"md":"# You may also want to plot the slope field for the differential equation whose solution is a logistic function.\n"}︡
 ︠b1da6f72-2165-4794-86a9-8bc882308c03︠
 t = var('t')
 def dp_dt(t,p): # plot_slope_field passes both t and p to this func, although dp_dt only depends on p

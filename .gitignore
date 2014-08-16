@@ -6,6 +6,7 @@
 *.bbl
 *.blg
 *.fdb_latexmk
+*.sage-history
 *backup
 *chat
 *term

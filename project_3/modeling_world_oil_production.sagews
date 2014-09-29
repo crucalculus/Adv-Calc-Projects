@@ -14,24 +14,31 @@ plot(p, (t,8,80), title="Elk Population", title_pos=(0.75,0.5), axes_labels=['$t
 ︡d614d9f1-2cfb-488d-be83-99859127858f︡{"md":"# You will need to plot a bunch of data points\n"}︡
 ︠1ebd5e17-f96e-4472-8860-a94f8076613c︠
 # Setup a list of points. I'm using the total cumulative oil produced.
-datapoints = [(0, 4.3), (1, 10.5), (2, 17.5), (3, 27.1), (4, 38.4), (5, 53.6), (6, 76), (7, 107.9), (8, 152.5), (9, 217.9), (10, 311.8), (11, 418.8), (12, 519.8), (13, 623.8), (14, 733.8), (15, 851.8), (16, 977.8), (17, 1107.8)]
+datapoints_world = [(0, 4.3), (5, 10.5), (10, 17.5), (15, 27.1), (20, 38.4), (25, 53.6), (30, 76), (35, 107.9), (40, 152.5), (45, 217.9), (50, 311.8), (55, 418.8), (60, 519.8), (65, 623.8), (70, 733.8), (75, 851.8), (80, 977.8), (85, 1107.8)]
+datapoints_us = [(0, 2.9), (5, 7.1), (10, 11.4), (15, 17.2), (20, 24.7), (25, 33.9), (30, 45.1), (35, 57.8), (40, 71.2), (45, 87), (50, 104), (55, 119.3), (60, 135.1), (65, 150.3), (70, 163.2), (75, 174.7), (80, 185.1), (85, 194.4)]
 # You can use the scatter_plot command to plot the points.
-scatter_plot(datapoints,xmax=30)
-︡db998798-627c-44b2-997a-70c204641ef8︡{"once":false,"file":{"show":true,"uuid":"6bb0fa15-7bc8-4101-af83-a4ca04c97f8b","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/852/tmp_yizSyg.svg"}}︡
+scatter_plot(datapoints_world,xmax=100, title="World Oil")
+scatter_plot(datapoints_us,xmax=100, title="US Oil")
+︡0cd7341f-a92c-49c8-a476-0b451adcb799︡{"once":false,"file":{"show":true,"uuid":"09448d79-a2e3-4892-91a0-dce25f3f79b9","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/24561/tmp_Umuy_Q.svg"}}︡{"once":false,"file":{"show":true,"uuid":"6a516b4a-18d8-4824-917f-9f430d86ec0f","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/24561/tmp_mJQRpV.svg"}}︡
 ︠2c161ddb-7955-4923-91f0-2a48ab066e80︠
 # SAGE has a wonderful tool built in that will let you find the equation for a logistic
 # curve that fits the given data.
 # I will set up variables for k, L, c and t
 var('k, L, c, t')
-# Then I put in the general form of the equation. In this case, the general solution for a logistic curve.
+# The general form of the equation is called model(t). In this case, the general solution for a logistic curve.
 model(t) = L / (1 + c*e^(-k*t))
 # The find_fit command will return back the parameters we need.
-find_fit(datapoints, model, parameters=[k,L,c], variables=[t])
-︡53d11eae-1d0e-4c0e-8b94-9fdcc87f2777︡{"stdout":"(k, L, c, t)\n"}︡{"stdout":"[k == 0.3577258384671146, L == 1416.6150840307419, c == 133.15548690134906]"}︡{"stdout":"\n"}︡
+find_fit(datapoints_world, model, parameters=[k,L,c], variables=[t])
+︡ed66efaa-696d-49f6-9a1d-7fd7cd8860e4︡{"stdout":"(k, L, c, t)\n"}︡{"stdout":"[k == 0.07154515702977221, L == 1416.6153717780398, c == 133.15545537132712]\n"}︡
+︠befc0291-d4b1-410f-bd97-85fdfb9bc52a︠
+find_fit(datapoints_us, model, parameters=[k,L,c], variables=[t])
+︡3b20bc50-c074-4273-990a-8a8d63a9d412︡{"stdout":"[k == 0.06484813152770683, L == 212.89710515427907, c == 27.347063271322305]\n"}︡
 ︠fed1faa3-133b-42fb-818b-d04961491164︠
 # Then we can plot the curve and the points together.
-plot( 1416.61508 / (1 + 133.15549*e^(-0.357726*x)), xmin=0, xmax=30) + scatter_plot(datapoints)
-︡e700bc75-f032-48ee-af7a-3a1d27d46c37︡{"once":false,"file":{"show":true,"uuid":"8937b439-a535-4bd6-a2cc-10926866386f","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/852/tmp_FQzMPh.svg"}}︡
+plot( 1416.615 / (1 + 133.15549*e^(-0.071545*x)), xmin=0, xmax=100, title="World Oil") + scatter_plot(datapoints_world)
+plot( 212.8971 / (1 + 27.34706*e^(-0.064848*x)), xmin=0, xmax=100, title="US Oil") + scatter_plot(datapoints_us)
+
+︡34b126e0-9014-40e4-b9a8-c5ce7161758d︡{"once":false,"file":{"show":true,"uuid":"c40eb5db-85ab-43e1-af43-2e58e0fae103","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/24561/tmp_k3fgYk.svg"}}︡{"once":false,"file":{"show":true,"uuid":"5f8b41f4-8938-4d66-bdd0-5e8b4c137fa7","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/24561/tmp_0VSg21.svg"}}︡
 ︠ea70dc7a-0363-4847-bddd-a10aae96d0f2i︠
 %md
 # You may also want to plot the slope field for the differential equation whose solution is a logistic function.

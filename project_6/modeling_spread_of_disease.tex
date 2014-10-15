@@ -26,21 +26,56 @@
 \begin{document}
 \section{Advanced Calculus Project 6: Modeling the Spread of Disease}
 
-\newthought{Many human diseases are contagious:} you ``catch'' them from someone who is already infected. Contagious diseases are of many kinds. Smallpox, polio, and plague are severe and even fatal, while the common cold and the childhood diseases of measles, mumps, and rubella are usually relatively mild. Moreover, you can catch a cold over and over again, but you get measles only once. A disease like measles is said to ``confer immunity'' on someone who recovers from it. Some diseases have the potential to affect large segments of a population; the are called epidemics (from the Greek words epi, upon + demos, the people.) Epidemiology is the scientific study of these diseases.
+\newthought{Many human diseases are contagious:} you ``catch'' them from someone 
+who is already infected. Contagious diseases are of many kinds. Smallpox, polio, 
+and plague are severe and even fatal, while the common cold and the childhood 
+diseases of measles, mumps, and rubella are usually relatively mild. Moreover, 
+you can catch a cold over and over again, but you get measles only once. A 
+disease like measles is said to ``confer immunity'' on someone who recovers from 
+it. Some diseases have the potential to affect large segments of a population; 
+they are called epidemics (from the Greek words epi, upon + demos, the people.) 
+Epidemiology is the scientific study of these diseases.
 
-An epidemic is a complicated matter, but the dangers posed by contagion and especially by the appearance of new and uncontrollable diseases, compel us to learn as much as we can about the nature of epidemics. Mathematics offers a very special kind of help. First, we can try to draw out of the situation its essential features and describe them mathematically. This is calculus as language. We substitute an ``ideal'' mathematical world for the real one. This mathematical world is called a model. Second, we can use mathematical insights and methods to analyze the model. This is calculus as tool. Any conclusion we reach about the model can then be interpreted to tell us something about the reality.
+An epidemic is a complicated matter, but the dangers posed by contagion and 
+especially by the appearance of new and uncontrollable diseases, compel us to 
+learn as much as we can about the nature of epidemics. Mathematics offers a very 
+special kind of help. First, we can try to draw out of the situation its 
+essential features and describe them mathematically. This is calculus as 
+language. We substitute an ``ideal'' mathematical world for the real one. This 
+mathematical world is called a model. Second, we can use mathematical insights 
+and methods to analyze the model. This is calculus as tool. Any conclusion we 
+reach about the model can then be interpreted to tell us something about the 
+reality.
 
-The objective of this project is to investigate and understand how the basic SIR model is put together. It turns out this will be a system of differential equations based on dividing a fixed population into three groups. There will be coefficients in these differential equations, and one of your first tasks should be to understand where these coefficients come from and how changes to them impact the model.
+The objective of this project is to investigate and understand how the basic SIR 
+model is put together. It turns out this will be a system of differential 
+equations based on dividing a fixed population into three groups. There will be 
+coefficients in these differential equations, and one of your first tasks should 
+be to understand where these coefficients come from and how changes to them 
+impact the model.
 
-Specifically, you will look at the impact of two changes. The first is a quarantine. The second is how immunity is conferred. In the writeup of this project, your abstract will be something like ``this report investigates the impact of a quarantine and how immunity is conferred on the basic SIR model.'' The conclusion of the report will be what you think about what makes a qurantine effective and what makes it ineffective. The conclusion will also contain what you think about how the immunity loss parameter impacts the basic SIR model. In essence, this project is the development and refinement of an SIR model and your job is to explain and comment on the process.
+Specifically, you will look at the impact of two changes. The first is a 
+quarantine. The second is how immunity is conferred. In the writeup of this 
+project, your abstract will be something like ``this report investigates the 
+impact of a quarantine and how immunity is conferred on the basic SIR model.'' 
+The conclusion of the report will be what you think about what makes a qurantine 
+effective and what makes it ineffective. The conclusion will also contain what 
+you think about how the immunity loss parameter impacts the basic SIR model. In 
+essence, this project is the development and refinement of an SIR model and your 
+job is to explain and comment on the process.
 
-To start, we'll build a model of an epidemic. Its basic purpose is to help us understand the way a contagious disease spreads through a population to the point where we can even predict what fraction falls ill, and when. Let's suppose the disease we want to model is like measles. In particular,
+To start, we'll build a model of an epidemic. Its basic purpose is to help us 
+understand the way a contagious disease spreads through a population to the point 
+where we can even predict what fraction falls ill, and when. Let's suppose the 
+disease we want to model is like measles. In particular,
 \begin{itemize}
 	\item it is mild, so anyone who falls ill eventually recovers;
 	\item it confers permanent immunity on every recovered victim.
 \end{itemize}
 
-In addition, we will assume that the affected population is large but fixed in size and confined to a geographically well-defined region. To have a concrete image, you can imagine the elementary school population of a big city.
+In addition, we will assume that the affected population is large but fixed in 
+size and confined to a geographically well-defined region. To have a concrete 
+image, you can imagine the elementary school population of a big city.
 
 At any time, that population can be divided into three distinct classes:
 \begin{itemize}
@@ -49,42 +84,76 @@ At any time, that population can be divided into three distinct classes:
 	\item Recovered: those who have already had the illness and are immune.
 \end{itemize}
 
-Suppose we let $S$, $I$, and $R$ denote the number of people in each of these three classes, respectively. Of course, the classes are all mixed together throughout the population: on a given day, we may find persons who are susceptible, infected, and recovered in the same family. For the purpose of organizing our thinking, though, we'll represent the whole population as separated into three ``compartments,'' each named for the three variables $S$, $I$, and $R$ which are all fucntions of time, $t$.
+Suppose we let $S$, $I$, and $R$ denote the number of people in each of these 
+three classes, respectively. Of course, the classes are all mixed together 
+throughout the population: on a given day, we may find persons who are 
+susceptible, infected, and recovered in the same family. For the purpose of 
+organizing our thinking, though, we'll represent the whole population as 
+separated into three ``compartments,'' each named for the three variables $S$, $I$
+, and $R$ which are all fucntions of time, $t$.
 
 \section{How fast do individuals move between compartments?} 
-We need to understand the rate at which people can move from one compartment to the next. In other words, we need to know how fast people get sick and how long does it take them to recover.
+We need to understand the rate at which people can move from one compartment to 
+the next. In other words, we need to know how fast people get sick and how long 
+does it take them to recover.
 
-Our first task will be to model the recovery rate $R'$. We look at the process of recovering first, because it's simpler to analyze. An individual caught in the epidemic first falls ill and then recovers. Recovery is just a matter of time. In particular, someone who catches measles has the infection for about fourteen days. So if we look at the entire infected population today, we can expect to find some who have been infected less than one day, some who have been infected between one and two days, and so on, up to fourteen days. Those in the last group will recover today. In the absence of any definite information about the fourteen groups, let's assume they are the same size. Then $1/14^{\text{th}}$ of the infected population will recover today:
+Our first task will be to model the recovery rate $R'$. We look at the process of 
+recovering first, because it's simpler to analyze. An individual caught in the 
+epidemic first falls ill and then recovers. Recovery is just a matter of time. In 
+particular, someone who catches measles has the infection for about fourteen 
+days. So if we look at the entire infected population today, we can expect to 
+find some who have been infected less than one day, some who have been infected 
+between one and two days, and so on, up to fourteen days. Those in the last group 
+will recover today. In the absence of any definite information about the fourteen 
+groups, let's assume they are the same size. Then $1/14^{\text{th}}$ of the 
+infected population will recover today:
 
 \[
 	\text{today the change in the recovered population} = \dfrac{I\;\text{persons}}{14\;\text{days}}
 \]
 
-There is nothing special about today, though; $I$ has a value at any time. Thus we can make the same argument about any other day:
+There is nothing special about today, though; $I$ has a value at any time. Thus 
+we can make the same argument about any other day:
 
 \[
 	\text{every day the change in the recovered population} = \dfrac{I\;\text{persons}}{14\;\text{days}}
 \]
 
-This equation is telling us about $R'$, the rate at which $R$ is changing. We can write it more simply in the form:
+This equation is telling us about $R'$, the rate at which $R$ is changing. We can 
+write it more simply in the form:
 
 \[
 	R' = \dfrac{1}{14}I \; \text{persons per day}
 \]
 
-We call this a rate equation (or sometimes a differential equation). Like any equation, it links different quantities together. In this case, it links $R'$ to $I$. The rate equation for $R$ is the first part of our model of the measles epidemic.
+We call this a rate equation (or sometimes a differential equation). Like any 
+equation, it links different quantities together. In this case, it links $R'$ to $
+I$. The rate equation for $R$ is the first part of our model of the measles 
+epidemic.
 
-Notice that the rate equation for $R'$ does indeed give us a tool to predict future values of $R$. Suppose that today, 2100 people are infected and 2500 have already recovered. Can we say how large the recovered population will be tomorrow or the next day? Since $I=2100$:
+Notice that the rate equation for $R'$ does indeed give us a tool to predict 
+future values of $R$. Suppose that today, 2100 people are infected and 2500 have 
+already recovered. Can we say how large the recovered population will be tomorrow 
+or the next day? Since $I=2100$:
 
 \[
 	R' = \dfrac{1}{14} \times 2100 = 150\;\text{persons per day}
 \]
 
-Therefore, we know that 150 people will recover in a single day, and twice as many, or 300, will recover in two days. At this rate, the recovered population will number 2650 tomorrow and 2800 the next day.
+Therefore, we know that 150 people will recover in a single day, and twice as 
+many, or 300, will recover in two days. At this rate, the recovered population 
+will number 2650 tomorrow and 2800 the next day.
 
-Of course, these calculations assume that the rate $R'$ is constant at 150 persons per day for the entire two days. Since $R'=I/14$, this is the same as assuming that $I$ holds constant at 2100 persons. If instead, $I$ varies during the two days we would have to adjust the value of $R'$ and the future values of $R$ as well. In fact, $I$ does vary over time. We will see this when we analyze how the infection is transmitted.
+Of course, these calculations assume that the rate $R'$ is constant at 150 
+persons per day for the entire two days. Since $R'=I/14$, this is the same as 
+assuming that $I$ holds constant at 2100 persons. If instead, $I$ varies during 
+the two days we would have to adjust the value of $R'$ and the future values of $R
+$ as well. In fact, $I$ does vary over time. We will see this when we analyze how 
+the infection is transmitted.
 
-It is convention to set $b=1/k$, where $k$ is the number of days it takes to recover. The constant $b$ is called the recovery coefficient. With this substitution, we have:
+It is convention to set $b=1/k$, where $k$ is the number of days it takes to 
+recover. The constant $b$ is called the recovery coefficient. With this 
+substitution, we have:
 
 \[
 	R' = bI\;\text{persons per day}

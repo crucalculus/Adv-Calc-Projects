@@ -26,117 +26,225 @@
 \begin{document}
 \section{Advanced Calculus Project 6: Modeling the Spread of Disease}
 
-\newthought{Many human diseases are contagious:} you ``catch'' them from someone who is already infected. Contagious diseases are of many kinds. Smallpox, polio, and plague are severe and even fatal, while the common cold and the childhood diseases of measles, mumps, and rubella are usually relatvely mild. Moreover, you can catch a cold over and over again, but you get measles only once. A disease like measles is said to ``confer immunity'' on someone who recovers from it. Some diseases have the potential to affect large segments of a population; the are called epidemics (from the Greek words epi, upon + demos, the people.) Epidemiology is the scientific study of these diseases.
+\newthought{Many human diseases are contagious:} you ``catch'' them from someone 
+who is already infected. Contagious diseases are of many kinds. Smallpox, polio, 
+and plague are severe and even fatal, while the common cold and the childhood 
+diseases of measles, mumps, and rubella are usually relatvely mild. Moreover, you 
+can catch a cold over and over again, but you get measles only once. A disease 
+like measles is said to ``confer immunity'' on someone who recovers from it. Some 
+diseases have the potential to affect large segments of a population; the are 
+called epidemics (from the Greek words epi, upon + demos, the people.) 
+Epidemiology is the scientific study of these diseases.
 
-An epidemic is a complicated matter, but the dangers posed by contagion and especially by the appearance of new and uncontrollable diseases, compel us to learn as much as we can about the nature of epidemics. Mathematics offers a very special kind of help. First, we can try to draw out of the situation its essential features and describe them mathematically. This is calculus as language. We substitute an ``ideal'' mathematical world for the real one. This mathematical world is called a model. Second, we can use mathematical insights and methods to analyze the model. This is calculus as tool. Any conclusion we reach about the model can then be interpreted to tell us something about the reality.
+An epidemic is a complicated matter, but the dangers posed by contagion and 
+especially by the appearance of new and uncontrollable diseases, compel us to 
+learn as much as we can about the nature of epidemics. Mathematics offers a very 
+special kind of help. First, we can try to draw out of the situation its 
+essential features and describe them mathematically. This is calculus as 
+language. We substitute an ``ideal'' mathematical world for the real one. This 
+mathematical world is called a model. Second, we can use mathematical insights 
+and methods to analyze the model. This is calculus as tool. Any conclusion we 
+reach about the model can then be interpreted to tell us something about the 
+reality.
 
-The objective of this project is to investigate and understand how the basic SIR model is put together. It turns out this will be a system of differential equations based on dividing a fixed population into three groups. There will be coefficients in these differential equations, and one of your first tasks should be to understand where these coefficients come from and how changes to them imapct the model.
+The objective of this project is to investigate and understand how the basic SIR 
+model is put together. It turns out this will be a system of differential 
+equations based on dividing a fixed population into three groups. There will be 
+coefficients in these differential equations, and one of your first tasks should 
+be to understand where these coefficients come from and how changes to them 
+imapct the model.
 
-Specifically, you will look at the impact of two changes. The first is a quarantine. The second is how immunity is confered. In the writeup of this project, your abstract will be something like ``this report investigates the impact of a quarantine and how immunity is confered on the basic SIR model.'' The conclusion of the report will be what you think about what makes a qurantine effective and what makes it ineffective. The conclusion will also contain what you think about how the immunity loss parameter impacts the basic SIR model. In essence, this project is the development and refinement of an SIR model and your job is to explain and comment on the process.
+%Specifically, you will look at the impact of two changes. The first is a quarantine. The second is how immunity is confered. In the writeup of this project, your abstract will be something like ``this report investigates the impact of a quarantine and how immunity is confered on the basic SIR model.'' The conclusion of the report will be what you think about what makes a qurantine effective and what makes it ineffective. The conclusion will also contain what you think about how the immunity loss parameter impacts the basic SIR model. In essence, this project is the development and refinement of an SIR model and your job is to explain and comment on the process.
 
-To start, we'll build a model of an epidemic. Its basic purpose is to help us understand the way a contagious disease spreads through a population to the point where we can even predict what fraction falls ill, and when. Let's suppose the disease we want to model is like measles. In particular,
+To start, we'll build a model of an epidemic. Its basic purpose is to help us 
+understand the way a contagious disease spreads through a population to the point 
+where we can even predict what fraction falls ill, and when. Let's suppose the 
+disease we want to model is like measles. In particular,
 \begin{itemize}
-	\item it is mild, so anyone who falls ill eventually recovers;
-	\item it confers permanent immunity on every recovered victim.
+    \item it is mild, so anyone who falls ill eventually recovers;
+    \item it confers permanent immunity on every recovered victim.
 \end{itemize}
 
-In addition, we will assume that the affected population is large but fixed in size and confined to a geographically well-defined region. To have a concrete image, you can imagine the elementary school population of a big city.
+In addition, we will assume that the affected population is large but fixed in 
+size and confined to a geographically well-defined region. To have a concrete 
+image, you can imagine the elementary school population of a big city.
 
 At any time, that population can be divided into three distinct classes:
 \begin{itemize}
-	\item Susceptible: those who have never had the illness and can catch it;
-	\item Infected: those who currently have the illness and are contagious;
-	\item Recovered: those who have already had the illness and are immune.
+    \item Susceptible: those who have never had the illness and can catch it;
+    \item Infected: those who currently have the illness and are contagious;
+    \item Recovered: those who have already had the illness and are immune.
 \end{itemize}
 
-Suppose we let $S$, $I$, and $R$ denote the number of people in each of these three classes, respectively. Of course, the classes are all mixed together throughout the population: on a given day, we may find persons who are susceptible, infected, and recovered in the same family. For the purpose of organizing our thinking, though, we'll represent the whole population as separated into three ``compartments,'' each named for the three variables $S$, $I$, and $R$ which are all fucntions of time, $t$.
+Suppose we let $S$, $I$, and $R$ denote the number of people in each of these 
+three classes, respectively. Of course, the classes are all mixed together 
+throughout the population: on a given day, we may find persons who are 
+susceptible, infected, and recovered in the same family. For the purpose of 
+organizing our thinking, though, we'll represent the whole population as 
+separated into three ``compartments,'' each named for the three variables $S$, 
+$I$, and $R$ which are all fucntions of time, $t$.
 
 \section{How fast do individuals move between compartments?} 
-We need to understand the rate at which people can move from one compartment to the next. In other words, we need to know how fast people get sick and how long does it take them to recover.
+We need to understand the rate at which people can move from one compartment to 
+the next. In other words, we need to know how fast people get sick and how long 
+does it take them to recover.
 
-Our first task will be to model the recovery rate $R'$. We look at the process of recovering first, because it's simpler to analyze. An individual caught in the epidemic first falls ill and then recovers. Recovery is just a matter of time. In particular, someone who catches measles has the infection for about fourteen days. So if we look at the entire infected population today, we can expect to find some who have been infected less than one day, some who have been infected between one and two days, and so on, up to fourteen days. Those in the last group will recover today. In the absence of any definite information about the fourteen groups, let's assume they are the same size. Then $1/14^{\text{th}}$ of the infected population will recover today:
+Our first task will be to model the recovery rate $R'$. We look at the process of 
+recovering first, because it's simpler to analyze. An individual caught in the 
+epidemic first falls ill and then recovers. Recovery is just a matter of time. In 
+particular, someone who catches measles has the infection for about fourteen 
+days. So if we look at the entire infected population today, we can expect to 
+find some who have been infected less than one day, some who have been infected 
+between one and two days, and so on, up to fourteen days. Those in the last group 
+will recover today. In the absence of any definite information about the fourteen 
+groups, let's assume they are the same size. Then $1/14^{\text{th}}$ of the 
+infected population will recover today:
 
 \[
-	\text{today the change in the recovered population} = \dfrac{I\;\text{persons}}{14\;\text{days}}
+    \text{today the change in the recovered population} = 
+    \dfrac{I\;\text{persons}}{14\;\text{days}}
 \]
 
 There is nothing special about today, though; $I$ has a value at any time. Thus we can make the same argument about any other day:
 
 \[
-	\text{every day the change in the recovered population} = \dfrac{I\;\text{persons}}{14\;\text{days}}
+    \text{every day the change in the recovered population} = 
+    \dfrac{I\;\text{persons}}{14\;\text{days}}
 \]
 
 This equation is telling us about $R'$, the rate at which $R$ is changing. We can write it more simply in the form:
 
 \[
-	R' = \dfrac{1}{14}I \; \text{persons per day}
+    R' = \dfrac{1}{14}I \; \text{persons per day}
 \]
 
-We call this a rate equation (or sometimes a differential equation). Like any equation, it links different quantities together. In this case, it links $R'$ to $I$. The rate equation for $R$ is the first part of our model of the measles epidemic.
+We call this a rate equation (or sometimes a differential equation). Like any 
+equation, it links different quantities together. In this case, it links $R'$ to 
+$I$. The rate equation for $R$ is the first part of our model of the measles 
+epidemic.
 
-Notice that the rate equation for $R'$ does indeed give us a tool to predict future values of $R$. Suppose that today, 2100 people are infected and 2500 have already recovered. Can we say how large the recovered population will be tomorrow or the next day? Since $I=2100$:
+Notice that the rate equation for $R'$ does indeed give us a tool to predict 
+future values of $R$. Suppose that today, 2100 people are infected and 2500 have 
+already recovered. Can we say how large the recovered population will be tomorrow 
+or the next day? Since $I=2100$:
 
 \[
-	R' = \dfrac{1}{14} \times 2100 = 150\;\text{persons per day}
+    R' = \dfrac{1}{14} \times 2100 = 150\;\text{persons per day}
 \]
 
-Therefore, we know that 150 people will recover in a single day, and twice as many, or 300, will recover in two days. At this rate, the recovered population will number 2650 tomorrow and 2800 the next day.
+Therefore, we know that 150 people will recover in a single day, and twice as 
+many, or 300, will recover in two days. At this rate, the recovered population 
+will number 2650 tomorrow and 2800 the next day.
 
-Of course, these calculations assume that the rate $R'$ is constant at 150 persons per day for the entire two days. Since $R'=I/14$, this is the same as assuming that $I$ holds constant at 2100 persons. If instead, $I$ varies during the two days we would have to adjust the value of $R'$ and the future values of $R$ as well. In fact, $I$ does vary over time. We will see this when we analyze how the infection is transmitted.
+Of course, these calculations assume that the rate $R'$ is constant at 150 
+persons per day for the entire two days. Since $R'=I/14$, this is the same 
+assuming that $I$ holds constant at 2100 persons. If instead, $I$ varies during 
+the two days we would have to adjust the value of $R'$ and the future values of 
+$R$ as well. In fact, $I$ does vary over time. We will see this when we analyze 
+how the infection is transmitted.
 
-It is convention to set $b=1/k$, where $k$ is the number of days it takes to recover. The constant $b$ is called the recovery coefficient. With this substitution, we have:
+It is convention to set $b=1/k$, where $k$ is the number of days it takes to 
+recover. The constant $b$ is called the recovery coefficient. With this 
+substitution, we have:
 
 \[
-	R' = bI\;\text{persons per day}
+    R' = bI\;\text{persons per day}
 \]
 
 \section{The Rate of Transmission}
-Since susceptibles become infected, we need to understand how the flow of individuals from the susceptible compartment move to the infected compartment. In other words, we need a rate equation for $S'$ -- that will show us how $S$ changes as the infection spreads. While $R'$ depends only on $I$, because recovery involves only waiting for people to leave the infected population, $S'$ will depend on both $S$ and $I$, because transmission involves contact between susceptible and infected persons.
+Since susceptibles become infected, we need to understand how the flow of 
+individuals from the susceptible compartment move to the infected compartment. In 
+other words, we need a rate equation for $S'$ -- that will show us how $S$ 
+changes as the infection spreads. While $R'$ depends only on $I$, because 
+recovery involves only waiting for people to leave the infected population, $S'$ 
+will depend on both $S$ and $I$, because transmission involves contact between 
+susceptible and infected persons.
 
-Here's a way to model the transmission rate. First, consider a single susceptible person on a single day. On average, this person will contact only a small fraction, $p$, of the infected population. For example, suppose there are 5000 infected children, so $I=5000$. We might expect only a couple of them -- let's say 2 -- will be in the same classroom with our ``average'' susceptible. So the fraction of contacts is $p=2/I = 2/5000= 0.0004$. The 2 contacts themselves can be expressed as $2=(2/I) \times I = pI$ contacts per day per susceptible.
+Here's a way to model the transmission rate. First, consider a single susceptible 
+person on a single day. On average, this person will contact only a small 
+fraction, $p$, of the infected population. For example, suppose there are 5000 
+infected children, so $I=5000$. We might expect only a couple of them -- let's 
+say 2 -- will be in the same classroom with our ``average'' susceptible. So the 
+fraction of contacts is $p=2/I = 2/5000= 0.0004$. The 2 contacts themselves can 
+be expressed as $2=(2/I) \times I = pI$ contacts per day per susceptible.
 
-To find how many daily contact the whole susceptible population will have, we can just multiply the average number of contacts per susceptible person by the number of susceptibles -- this is $pSI$.
+To find how many daily contact the whole susceptible population will have, we can 
+just multiply the average number of contacts per susceptible person by the number 
+of susceptibles -- this is $pSI$.
 
-Not all contacts will lead to a new infection -- only a certain fraction $q$ do. The more contagious the disease, the larger $q$ is. Since the number of daily contacts is $pSI$, we can expect $qpSI$ new infections per day (i.e., to convert contact to infections, multiply by $q$). This becomes $aSI$ if we define $a$ to be the product $pq$.
+Not all contacts will lead to a new infection -- only a certain fraction $q$ do. 
+The more contagious the disease, the larger $q$ is. Since the number of daily 
+contacts is $pSI$, we can expect $qpSI$ new infections per day (i.e., to convert 
+contact to infections, multiply by $q$). This becomes $aSI$ if we define $a$ to 
+be the product $pq$.
 
-Remember, the value of the recovery coefficient depends on the illness involved. It is the same for all populations. By contrast, the value of $a$ depends on the general health of a population and the level of social interaction between its members. Thus, when two different populations experience the same illness, the values of $a$ could be different. One strategy for dealing with an epidemic is to alter the value of $a$. Quarantine does this, as you will learn later in this paper.
+Remember, the value of the recovery coefficient depends on the illness involved. 
+It is the same for all populations. By contrast, the value of $a$ depends on the 
+general health of a population and the level of social interaction between its 
+members. Thus, when two different populations experience the same illness, the 
+values of $a$ could be different. One strategy for dealing with an epidemic is to 
+alter the value of $a$. Quarantine does this, as you will learn later.
 
-Since each new infection decreases the number of susceptibles, we have the rate equation for $S$:
+Since each new infection decreases the number of susceptibles, we have the rate 
+equation for $S$:
 
 \[
-	S' = -aSI\;\text{persons per day}
+    S' = -aSI\;\text{persons per day}
 \]
 
-The minus sign here tells us that $S$ is decreasing (since $S$ and $I$ are positive). We call $a$ the transmission coefficient.
+The minus sign here tells us that $S$ is decreasing (since $S$ and $I$ are 
+positive). We call $a$ the transmission coefficient.
 
 \section{What should be the units on $a$ and $b$?}
-We haven't talked about the units in which to measure $a$ and $b$. They must be chosen so that any equation in which $a$ or $b$ appears will balance. Thus, in $R'=bI$, the units on the left are persons/day; since the units for $I$ are persons, the units for $b$ must be $1/(\text{days})$. The units in $S'=-aSI$ will balance only if $a$ is measured in $1/(\text{person}\times\text{day})$.
+We haven't talked about the units in which to measure $a$ and $b$. They must be 
+chosen so that any equation in which $a$ or $b$ appears will balance. Thus, in 
+$R'=bI$, the units on the left are persons/day; since the units for $I$ are 
+persons, the units for $b$ must be $1/(\text{days})$. The units in $S'=-aSI$ will 
+balance only if $a$ is measured in $1/(\text{person}\times\text{day})$.
 
-The reciprocals of $a$ and $b$ have more natural interpretations. First, $1/b$ is the number of days a person needs to recover. Next, note that $1/a$ is measured in person-days, which are the natural units in which to measure exposure. Here is why. Suppose you contact 3 infected persons for each of 4 days. That gives you the same exposure to the illness that you get from 6 infected persons in 2 days. Both situations give 12 ``person-days'' of exposure. Thus, we can interpret $1/a$ as the level of exposure of a typical susceptible person.
+The reciprocals of $a$ and $b$ have more natural interpretations. First, $1/b$ is 
+the number of days a person needs to recover. Next, note that $1/a$ is measured 
+in person-days, which are the natural units in which to measure exposure. Here is 
+why. Suppose you contact 3 infected persons for each of 4 days. That gives you 
+the same exposure to the illness that you get from 6 infected persons in 2 days. 
+Both situations give 12 ``person-days'' of exposure. Thus, we can interpret $1/a$ 
+as the level of exposure of a typical susceptible person.
 
 \section{Completing the Model}
-The final rate equation we need -- the one for $I'$ -- reflects what is already clear from the compartment diagram: every loss in $I$ is due to a gain in $R$, while every gain in $I$ is due to a loss in $S$.
+The final rate equation we need -- the one for $I'$ -- reflects what is already 
+clear from the compartment diagram: every loss in $I$ is due to a gain in $R$, 
+while every gain in $I$ is due to a loss in $S$.
 
 So the complete model looks like this:
 
 \begin{eqnarray*}
-	S' &=& -aSI \\
-	I' &=& aSI - bI \\
-	R' &=& bI \\
+    S' &=& -aSI \\
+    I' &=& aSI - bI \\
+    R' &=& bI \\
 \end{eqnarray*}
 
-\section{The Threshold Level}
+%\section{The Threshold Level}
 
 
-\section{Quarantine}
-One of the ways to treat an epidemic is to keep the infected away from the susceptible; this is called quarantine. Something you might consider here is the impact on those involved. For example, should a quarantine take the susceptible away from the infected or should it take the infected away from the susceptible? In either case, the intention is to reduce the chance that the illness will be transmitted to a susceptible person. Thus, a quarantine policy alters the transmission coefficient.
-\begin{enumerate}
-	\item Suppose a quarantine is put into effect that cuts in half the chance that a susceptible will fall ill. What is the new transmission coefficient?
-	\item It was determined that whenever there were fewer than 7143 susceptibles, the number of infected would decline instead of grow. We called 7143 a threshold level for $S$. Changing the transmission coefficient, as in part (a), changes the threshold level for $S$. What is the new threshold?
-	\item Suppose we start with $S$ = 45,400. Does quarantine eliminate the epidemic, in the sense that the number of infected immediately goes down from 2100, without ever showing an increase in the number of cases?
-	\item Since the new transmission coefficient is not small enough to guarantee that I never goes up, can you find a smaller value that does guarantee I never goes up? Continue to assume we start with $S$ = 45400.
-	\item Suppose the initial susceptible population is 45,400. What is the largest value that the transmission coefficient can have and still guarantee that I never goes up? What level of quarantine does this represent? That is, do you have to reduce the chance that a susceptible will fall ill to one-third of what it was with no quarantine at all, to one-fourth, or what?
-\end{enumerate}
+%\section{Quarantine}
+%One of the ways to treat an epidemic is to keep the infected away from the susceptible; this is called quarantine. Something you might consider here is the impact on those involved. For example, should a quarantine take the susceptible away from the infected or should it take the infected away from the susceptible? In either case, the intention is to reduce the chance that the illness will be transmitted to a susceptible person. Thus, a quarantine policy alters the transmission coefficient.
+\%begin{enumerate}
+%	\item Suppose a quarantine is put into effect that cuts in half the chance that a susceptible will fall ill. What is the new transmission coefficient?
+%	\item It was determined that whenever there were fewer than 7143 susceptibles, the number of infected would decline instead of grow. We called 7143 a threshold level for $S$. Changing the transmission coefficient, as in part (a), changes the threshold level for $S$. What is the new threshold?
+%	\item Suppose we start with $S$ = 45,400. Does quarantine eliminate the epidemic, in the sense that the number of infected immediately goes down from 2100, without ever showing an increase in the number of cases?
+%	\item Since the new transmission coefficient is not small enough to guarantee that I never goes up, can you find a smaller value that does guarantee I never goes up? Continue to assume we start with $S$ = 45400.
+%	\item Suppose the initial susceptible population is 45,400. What is the largest value that the transmission coefficient can have and still guarantee that I never goes up? What level of quarantine does this represent? That is, do you have to reduce the chance that a susceptible will fall ill to one-third of what it was with no quarantine at all, to one-fourth, or what?
+%\end{enumerate}
+
+\section{Example Use of the Model}
+Your report should contain the details of how a basic SIR-model is put together.
+This will look similar to what is in this project description, but should be
+written in your own words.
+
+To use the model, we need to decide on the values of the constants that appear
+in the system of differential equations. This means we need values for $a$ and
+$b$. Once these values are selected, we can solve the system to obtain functions
+that tell us how $S$, $I$, and $R$ change over time.
 
 \section{What Goes Around Comes Around}
 Some relatively mild illnesses, like the common cold, return to infect you again and again. For a while, right after you recover from a cold, you are immune. But that doesn't last; after some weeks or months, depending on the illness, you become susceptible again. This means there is now a flow from the recovered population to the susceptible. These exercises ask you to modify the basic S-I-R model to describe an illness where immunity is temporary.

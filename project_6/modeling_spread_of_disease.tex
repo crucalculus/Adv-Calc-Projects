@@ -36,6 +36,8 @@ diseases have the potential to affect large segments of a population; the are
 called epidemics (from the Greek words epi, upon + demos, the people.) 
 Epidemiology is the scientific study of these diseases.
 
+\section{Introduction}
+
 An epidemic is a complicated matter, but the dangers posed by contagion and 
 especially by the appearance of new and uncontrollable diseases, compel us to 
 learn as much as we can about the nature of epidemics. Mathematics offers a very 
@@ -76,7 +78,8 @@ At any time, that population can be divided into three distinct classes:
     \item Recovered: those who have already had the illness and are immune.
 \end{itemize}
 
-Suppose we let $S$, $I$, and $R$ denote the number of people in each of these 
+Suppose we let $S(t)$, $I(t)$, and $R(t)$ denote the number of people in
+each of these 
 three classes, respectively. Of course, the classes are all mixed together 
 throughout the population: on a given day, we may find persons who are 
 susceptible, infected, and recovered in the same family. For the purpose of 
@@ -105,7 +108,8 @@ infected population will recover today:
     \dfrac{I\;\text{persons}}{14\;\text{days}}
 \]
 
-There is nothing special about today, though; $I$ has a value at any time. Thus we can make the same argument about any other day:
+There is nothing special about today, though. $I$ has a value at any time. Thus 
+we can make the same argument about any other day:
 
 \[
     \text{every day the change in the recovered population} = 
@@ -118,7 +122,7 @@ This equation is telling us about $R'$, the rate at which $R$ is changing. We ca
     R' = \dfrac{1}{14}I \; \text{persons per day}
 \]
 
-We call this a rate equation (or sometimes a differential equation). Like any 
+Like any differential 
 equation, it links different quantities together. In this case, it links $R'$ to 
 $I$. The rate equation for $R$ is the first part of our model of the measles 
 epidemic.
@@ -250,10 +254,10 @@ that tell us how $S$, $I$, and $R$ change over time.
 Some relatively mild illnesses, like the common cold, return to infect you again and again. For a while, right after you recover from a cold, you are immune. But that doesn't last; after some weeks or months, depending on the illness, you become susceptible again. This means there is now a flow from the recovered population to the susceptible. These exercises ask you to modify the basic S-I-R model to describe an illness where immunity is temporary.
 
 \begin{enumerate}
-	\item Draw a compartment diagram for such an illness. Besides having all the ingredients of the diagram on page 9, it should depict a flow from $R$ to $S$. Call this immunity loss, and use $c$ to denote the coefficient of immunity loss.
-	\item Suppose immunity is lost after about six weeks. Show that you can set $c = 1/42$ per day, and explain your reasoning carefully.
-	\item Suppose this illness lasts 5 days and it has a transmission coefficient of .00004 in the population we are considering. Suppose furthermore that the total population is fixed in size (as was the case in the text). Write down rate equations for $S$, $I$, and $R$.
-	\item The model for an illness that confers permanent immunity has a threshold value for $S$ in the sense that when $S$ is above the threshold, $I$ increases, but when it is below, $I$ decreases. Does this model have the same feature? If so, what is the threshold value?
+    \item Draw a compartment diagram for such an illness. Besides having all the ingredients of the diagram on page 9, it should depict a flow from $R$ to $S$. Call this immunity loss, and use $c$ to denote the coefficient of immunity loss.
+    \item Suppose immunity is lost after about six weeks. Show that you can set $c = 1/42$ per day, and explain your reasoning carefully.
+    \item Suppose this illness lasts 5 days and it has a transmission coefficient of .00004 in the population we are considering. Suppose furthermore that the total population is fixed in size (as was the case in the text). Write down rate equations for $S$, $I$, and $R$.
+    \item The model for an illness that confers permanent immunity has a threshold value for $S$ in the sense that when $S$ is above the threshold, $I$ increases, but when it is below, $I$ decreases. Does this model have the same feature? If so, what is the threshold value?
 \end{enumerate}
 
 

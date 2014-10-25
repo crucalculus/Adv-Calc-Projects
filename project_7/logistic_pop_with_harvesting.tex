@@ -10,7 +10,6 @@
 % IN THIS PROJECT, STUDENTS HAVE TO MODEL THE POPULATION WITH A LOGISTIC MODEL
 % TAKING INTO CONSIDERATION HARVESTING AT DIFFERENT RATES.
 %
-% BLANCHARD, PAGES 144-145.
 %
 %%%%%%%
 %
@@ -36,32 +35,61 @@
 \includegraphics[scale=0.3]{fish.png}
 \section{Advanced Calculus Project 5: Logistic Population Growth with Harvesting}
 
-\newthought{Logistic Models of} population growth can be very useful in modeling population growth in an environment with finite resources. In some cases, we may want to also ``harvest'' part of the population at regular intervals. In particular, you should imagine a fish population subject to various degrees and types of fishing. The differential equation models are given below. In your report, you should include a discussion of the meaning of each variable and parameter and an explanation of why the equation is written the way it is.
+\newthought{Logistic Models of} population growth can be very useful in modeling population growth in 
+an environment with finite resources. In some cases, we may want to also ``harvest'' part of the 
+population at regular intervals. In particular, you should imagine a fish population subject to 
+various degrees and types of fishing. The differential equation models are given below. In your 
+report, you should include a discussion of the meaning of each variable and parameter and an 
+explanation of why the equation is written the way it is.
 
-We have discussed three general approaches that can be employed to study a differential equation: Numerical techniques yield graphs of approximate solutions, geometric/qualitative techniques provide predictions of the long-term behavior of the solution and in special cases analytic techniques provide explicit formulas of the solution. In your report, you should employ as many of these techniques as is appropriate to help understand the models, and you should consider the following three equations:
+We have discussed three general approaches that can be employed to study a differential equation: 
+Numerical techniques yield graphs of approximate solutions, geometric/qualitative techniques provide 
+predictions of the long-term behavior of the solution and in special cases analytic techniques provide 
+explicit formulas of the solution. In your report, you should employ as many of these techniques as is 
+appropriate to help understand the models, and you should consider the following three equations.
+$P(t)$ is the population of fish at time $t$, measured in thousands of fish.
 
-Please refer to the table at the end of this assignment for a list of choices for the parameters $k$, $N$, $a_1$, and $a_2$. Each row of this table can be considered as a ``harvesting option.''
+Please refer to the table at the end of this assignment for a list of choices for the parameters $k$, 
+$N$, $a_1$, and $a_2$. Each row of this table can be considered as a ``harvesting option.''
 
 \begin{enumerate}
-	\item (Logistic growth with constant harvesting) The equation
-	\[
-		\displaystyle\frac{dp}{dt}=kp\left(1-\displaystyle\frac{p}{N}\right) - a
-	\]
-	
-	represents a logistic model of population growth with constant harvesting at a rate $a$. For $a=a_1$, what will happen to the fish population for various initial conditions? (Note: This equation is autonomous, so you can take advantage of the special techniques that are available for autonomous equations.)
-	
-	\item (Logistic growth with periodic harvesting) The equation
-	\[
-		\displaystyle\frac{dp}{dt}= kp\left(1-\displaystyle\frac{p}{N}\right) - a\left(1+\sin(bt)\right)
-	\]
-	
-	is a nonautonomous equation that considers periodic harvesting. What will the parameters $a$ and $b$ represent? Let $b=1$. If $a=a_1$, what will happen to the fish popultion for various initial conditions?
-	
-	\item Consider the same equation as in Part 2 above, but let $a=a_2$. What will happen to the fish population for various initial conditions with this value of $a$?	
-	
+    \item \textbf{Logistic growth with constant harvesting}
+    \[
+        \displaystyle\frac{dP}{dt}=kP\left(1-\displaystyle\frac{P}{N}\right) - a
+    \]
+
+The equation represents a logistic model of population growth with constant harvesting at 
+a rate $a$. For $a=a_1$, 
+what will happen to the fish population for various initial conditions? (Note: This equation is 
+autonomous, so you can take advantage of the special techniques that are available for autonomous 
+equations.)
+
+    \item \textbf{Logistic growth with periodic harvesting}
+    \[
+        \displaystyle\frac{dP}{dt}= kP\left(1-\displaystyle\frac{P}{N}\right)
+            - a\left(1+\sin\left(t\right)\right)
+    \]
+
+The equation is a non-autonomous equation that considers periodic harvesting. What will
+the parameter $a$ represent? If $a=a_1$, what will happen to the
+fish population for various initial conditions?
+
+\item Consider the same equation as in Part 2 above, but let $a=a_2$. What will happen 
+to the fish population for various initial conditions with this value of $a$?
+
 \end{enumerate}
 
-\textbf{Your report:} In your report you should address these three questions, one at a time, in the form of a short essay. Begin Questions 1 and 2 with a description of the meaning of each of the variables and parameters and an explanation of why the differential equation is the way it is. You should include pictures and graphs of data and of solutions of your models as appropriate. (Remember that one carefully chosen picture can be worth a thousand words, but a thousand pictures aren't worth anything.)
+As always, your report should contain an abstract, procedure, and conclusion. The purpose of this
+report is to investigate several different fish harvesting options and make a proposal about which
+options are the most effective under different circumstances. For example, in the scenario where
+the type of fish is abundant, we may want to pursue a strategy that maximizes the number of fish
+harvested. In another scenario, the type of fish may be endangered. In which case, we many want to 
+take precautions so that even though we continue to harvest, we run absolutely no risk of
+species extinction.
+
+As part of the report, you will need to provide solutions and graphs for a number of different
+differential equations. The SAGE worksheet in this project's folder should provide some examples
+about how to use SAGE to solve and graph solutions to the equations you need.
 
 \begin{fullwidth}
 \begin{table}

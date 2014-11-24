@@ -3,7 +3,7 @@
 % PROJECT 5 - LOGISTIC POPULATION MODELS WITH HARVESTING
 %
 % filename: logistic_pop_with_harvesting.tex
-% last modified: 2013-11-11
+% last modified: 2014-11-22
 %
 %%%%%%%
 %
@@ -13,11 +13,6 @@
 %
 %%%%%%%
 %
-% TODO:
-% 1. PERHAPS MAKE IT CLEARER THAT I WANT STUDENTS TO INVESTIGATE AND DESCRIBE
-%    WHAT WILL HAPPEN IN THE PERIODIC HARVESTING MODEL. HOW OFTEN CAN WE HARVEST?
-%    HOW CAN WE HIT A TARGET POPULATION AND MAINTAIN THAT POPULATION? WHAT
-%    ABOUT THE DIFFERENCES IN FISH FARMS VERSUS A NORMAL ECOLOGICAL SYSTEM?
 %
 % 
 %%%%%%%
@@ -35,22 +30,54 @@
 \includegraphics[scale=0.3]{fish.png}
 \section{Advanced Calculus Project 5: Logistic Population Growth with Harvesting}
 
-\newthought{Logistic Models of} population growth can be very useful in modeling population growth in 
+\newthought{Logistic Models of} population growth can be very useful in modeling population
+growth in 
 an environment with finite resources. In some cases, we may want to also ``harvest'' part of the 
 population at regular intervals. In particular, you should imagine a fish population subject to 
-various degrees and types of fishing. The differential equation models are given below. In your 
+various degrees and types of fishing. The differential equation models for three types of
+harvesting are given below.
+
+This project is essentially asking you to evaluate several different harvesting strategies, and
+make a proposal to a fishery about how they can run their business. The primary focus should be
+on maintaining some level of harvesting so that the business can sell the fish and make a profit,
+but at the same time not harvest too many fish too soon which would cause the fish population
+to become extinct.
+
+The relevancy and applicability of this project is enormous. Currently, there are a number
+of fisheries operating at a profit while doing significant harm to the species of fish they
+harvest. In addition, there are many cases where illegal harvesting occurs and threatens some
+species with extinction. If you would like to make your report truly exceptional, research some
+of these cases and add them as evidence to your report.
+
+The three models you will evaluate are constant harvesting, proportional harvesting, and periodic
+harvesting. In each case, there are advantages and disadvantages that you must discover. Constant
+harvesting means that a fixed number of fish are harvested independent of the current population
+size.
+In proportional harvesting, the number of fish that are harvested is proportional to the current
+size of population of fish. In periodic harvesting, the number of fish harvested depends on time.
+You
+can think of periodic harvesting as seasonal harvesting. More fish are removed at certain times
+of the year.
+
+In your 
 report, you should include a discussion of the meaning of each variable and parameter and an 
 explanation of why the equation is written the way it is.
 
 We have discussed three general approaches that can be employed to study a differential equation: 
-Numerical techniques yield graphs of approximate solutions, geometric/qualitative techniques provide 
-predictions of the long-term behavior of the solution and in special cases analytic techniques provide 
-explicit formulas of the solution. In your report, you should employ as many of these techniques as is 
+Numerical techniques (Euler's Method) yield graphs of approximate solutions, 
+geometric or qualitative techniques (slope fields) provide 
+predictions of the long-term behavior of the solution and in special cases analytic techniques
+(separation of variables and integration) provide 
+explicit formulas for the solution. In your report, you should employ as many of these
+techniques as is 
 appropriate to help understand the models, and you should consider the following three equations.
-$P(t)$ is the population of fish at time $t$, measured in thousands of fish.
+$P(t)$ is the population of fish at time $t$, measured in thousands of fish. The units of time
+can be interpreted in several different ways, depending on the model. This definition of time
+will be something you will want to address in your report while describing each model.
 
 Please refer to the table at the end of this assignment for a list of choices for the parameters $k$, 
-$N$, $a_1$, and $a_2$. Each row of this table can be considered as a ``harvesting option.''
+$N$, $a$, $b$, and $c$. Each row of this table can be considered as a ``harvesting option.'' These
+options are meant to provide a starting point for your investigation.
 
 \begin{enumerate}
     \item \textbf{Logistic growth with constant harvesting}
@@ -59,23 +86,29 @@ $N$, $a_1$, and $a_2$. Each row of this table can be considered as a ``harvestin
     \]
 
 The equation represents a logistic model of population growth with constant harvesting at 
-a rate $a$. For $a=a_1$, 
-what will happen to the fish population for various initial conditions? (Note: This equation is 
-autonomous, so you can take advantage of the special techniques that are available for autonomous 
-equations.)
+a rate $a$, measured in thousands of fish per unit time. 
+What will happen to the fish population for various initial conditions? You should consider
+initial populations both above and below the given carrying capacity, $N$.
+
+    \item \textbf{Logistic growth with proportional harvesting}
+    \[
+        \displaystyle\frac{dP}{dt}= kP\left(1-\displaystyle\frac{P}{N}\right)
+            - bP
+    \]
+
+What will
+the parameter $b$ represent? What will be the units of $b$? What will happen to the
+fish population for various initial conditions?
 
     \item \textbf{Logistic growth with periodic harvesting}
     \[
         \displaystyle\frac{dP}{dt}= kP\left(1-\displaystyle\frac{P}{N}\right)
-            - a\left(1+\sin\left(t\right)\right)
+            - c\left(1+\sin\left(2\pi t\right)\right)
     \]
 
-The equation is a non-autonomous equation that considers periodic harvesting. What will
-the parameter $a$ represent? If $a=a_1$, what will happen to the
+What will
+the parameter $c$ represent? What will be the units of $c$? What will happen to the
 fish population for various initial conditions?
-
-\item Consider the same equation as in Part 2 above, but let $a=a_2$. What will happen 
-to the fish population for various initial conditions with this value of $a$?
 
 \end{enumerate}
 
@@ -87,26 +120,30 @@ harvested. In another scenario, the type of fish may be endangered. In which cas
 take precautions so that even though we continue to harvest, we run absolutely no risk of
 species extinction.
 
+You are not necessarily limited to the ten choices listed in the table. These choices are meant
+as suggestions about options for a proposal and to help guide your exploration. What this means
+is that your proposal is not required to be in this list.
+
 As part of the report, you will need to provide solutions and graphs for a number of different
 differential equations. The SAGE worksheet in this project's folder should provide some examples
 about how to use SAGE to solve and graph solutions to the equations you need.
 
 \begin{fullwidth}
 \begin{table}
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 \toprule
-Choice & $k$ & $N$ & $a_1$ & $a_2$ \\
+Choice & $k$ & $N$ & $a$ & $b$ & $c$ \\
 \midrule
-1 & 0.25 & 4 & 0.16 & 0.25 \\
-2 & 0.50 & 2 & 0.21 & 0.25 \\
-3 & 0.20 & 5 & 0.21 & 0.25 \\
-4 & 0.20 & 5 & 0.16 & 0.25 \\
-5 & 0.25 & 4 & 0.09 & 0.25 \\
-6 & 0.20 & 5 & 0.09 & 0.25 \\
-7 & 0.50 & 2 & 0.16 & 0.25 \\
-8 & 0.20 & 5 & 0.24 & 0.25 \\
-9 & 0.25 & 4 & 0.21 & 0.25 \\
-10 & 0.50 & 2 & 0.09 & 0.25 \\
+1 & 0.25 & 4 & 0.16 & 0.16 & 0.10 \\
+2 & 0.50 & 2 & 0.21 & 0.21 & 0.10 \\
+3 & 0.20 & 5 & 0.21 & 0.21 & 0.30 \\
+4 & 0.20 & 5 & 0.16 & 0.16 & 0.25 \\
+5 & 0.25 & 4 & 0.09 & 0.16 & 0.21 \\
+6 & 0.20 & 5 & 0.09 & 0.09 & 0.18 \\
+7 & 0.50 & 2 & 0.16 & 0.16 & 0.22 \\
+8 & 0.20 & 5 & 0.24 & 0.24 & 0.33 \\
+9 & 0.25 & 4 & 0.21 & 0.21 & 0.12 \\
+10 & 0.50 & 2 & 0.09 & 0.09 & 0.15 \\
 \bottomrule
 \caption{\label{param1} Possible choices for the parameters}
 \end{tabular}

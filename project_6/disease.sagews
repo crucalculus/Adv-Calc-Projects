@@ -1,8 +1,8 @@
-︠d9272958-77c1-4cbf-bbaa-18a3463c7d5fis︠
+︠d9272958-77c1-4cbf-bbaa-18a3463c7d5fi︠
 %md
 # $SIR$-model for the spread of disease
 ︡3dbb5917-0acb-4300-8d31-2e8bd661d8ac︡{"md":"# $SIR$-model for the spread of disease\n"}︡
-︠496b6817-3311-43fa-8691-fa2ba563b77e︠
+︠496b6817-3311-43fa-8691-fa2ba563b77es︠
 # this is the library that we need for the system solver
 from sage.calculus.desolvers import desolve_system_rk4
 
@@ -13,7 +13,7 @@ t, S, I, R = var('t, S, I, R')
 # a tells us how infectious the disease is.
 # k tells us how many days it takes for someone to recover.
 # b is related to how long it will take to recover.
-a = 0.001
+a = 0.01
 k = 6
 b = 1/k
 
@@ -27,7 +27,7 @@ PR = list_plot([[t,R] for t,S,I,R in P], plotjoined=True, legend_label='Recovere
 
 # show the plot
 show(PS+PI+PR, title="$SIR$-model for the spread of disease", axes_labels=["Time in Days", "Number of people"])
-︡cb6208df-d190-48a2-b2eb-59b5a1cb4d86︡{"once":false,"file":{"show":true,"uuid":"31031fc5-296a-409e-bba4-105b0b5f17d3","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/8950/tmp_tOqTpS.svg"}}︡
+︡cba617fb-f9a4-4cc6-b1dc-dd9a3f033ba7︡{"once":false,"file":{"show":true,"uuid":"ae724894-1d19-4200-a7c6-1c1c59591b26","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/1273/tmp_NwiYHU.svg"}}︡
 ︠9f099721-d646-4f42-b545-0e00270e0899︠
 
 

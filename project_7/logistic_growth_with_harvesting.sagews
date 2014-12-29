@@ -1,15 +1,17 @@
 ︠99e994d7-73d1-4274-a3a7-2ee119a129bfas︠
 %auto
-︡860987e1-3189-4c95-8e43-d0a4233b2a9b︡{"auto":true}︡
+︡fff2281e-86e9-450b-ad67-b8691452e224︡{"auto":true}︡
 ︠d341524e-8c25-42b4-8e88-d74774d6cb89i︠
 %md
 # Logistic Growth with Harvesting
 ︡9c1f12cf-abca-448e-bcfa-6d3cb5faee11︡{"md":"# Logistic Growth with Harvesting\n"}︡
+︠082636b5-e1c2-4cf8-9b10-35f4fa745156︠
+
 ︠fefd9c84-e595-4911-b35c-0f3ad51e2c1bi︠
 %md
 1. Logistic Growth with constant harvesting
 ︡b3c4d668-58f9-4558-aa00-1a1ce3ae7b5e︡{"md":"1. Logistic Growth with constant harvesting\n"}︡
-︠fdde2a72-8d56-4f62-8029-17ad435d7c4bs︠
+︠fdde2a72-8d56-4f62-8029-17ad435d7c4b︠
 # Set up our variables and constants
 t = var('t') # time
 P = function('P',t) # P(t) is population at time t
@@ -27,11 +29,11 @@ lg_constant = diff(P,t,1) == k*P*(1-P/N) - a
 soln = desolve_rk4(lg_constant, P, ics=[0,init_p], end_points=30)
 list_plot(soln, xmin=0, xmax=30, ymin=0, ymax=6, title="Logistic Growth with Constant Harvesting",plotjoined=True)
 ︡04cddc72-3c32-4a3f-a30d-840ba664723f︡{"once":false,"file":{"show":true,"uuid":"45a66c20-0ee6-44e1-b476-535f58023524","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/2533/tmp_MhT2XU.svg"}}︡
-︠f4a90f7f-833a-42ec-bc40-bc0866837856is︠
+︠f4a90f7f-833a-42ec-bc40-bc0866837856i︠
 %md
 1. Logistic Growth with Proportional Harvesting
 ︡8c3ccc3e-1544-4d6d-9886-d4497fac7992︡{"md":"1. Logistic Growth with Proportional Harvesting\n"}︡
-︠041561b7-6bf9-4c75-97a4-55d217c15004s︠
+︠041561b7-6bf9-4c75-97a4-55d217c15004︠
 t = var('t') # time
 P = function('P',t) # population function
 k = 0.4 # proportionality constant
@@ -52,7 +54,7 @@ list_plot(soln, xmin=0, xmax=30, ymin=0, ymax=6, title="Logistic Growth with Pro
 %md
 2. Logistic Growth with periodic harvesting
 ︡2c977e0f-94c2-4e6a-9239-89c1f2bc7b44︡{"md":"2. Logistic Growth with periodic harvesting\n"}︡
-︠eceb065e-e9ee-4c57-b3a3-565ade1cff81s︠
+︠eceb065e-e9ee-4c57-b3a3-565ade1cff81︠
 # Set up our variables and constants
 t = var('t') # time
 P = function('P',t) # population function
@@ -67,7 +69,7 @@ lg_periodic = diff(P,t,1) == k*P*(1-P/N) - c*(1+sin(t))
 soln = desolve_rk4(lg_periodic, P, ics=[0,init_p], ivar=t, end_points=20)
 list_plot(soln, xmin=0, xmax=20, ymin=0, ymax=6, title="Logistic Growth with Periodic Harvesting",plotjoined=True)
 ︡a302c007-1e91-4f15-ba66-6cb768e3527e︡{"once":false,"file":{"show":true,"uuid":"7fe06019-5597-44f3-97f9-f2fa134d0506","filename":"/projects/629d202e-792b-4a3a-9968-b21046327c37/.sage/temp/compute3dc2/2533/tmp_Ys9Rhc.svg"}}︡
-︠48d97c8f-fa5a-4b54-8b55-5189187585d6is︠
+︠48d97c8f-fa5a-4b54-8b55-5189187585d6i︠
 %md
 1. You may also want to plot a slope field for the differential equation
 ︡76d17589-3c0e-4cc7-ae19-371982525e5d︡{"md":"1. You may also want to plot a slope field for the differential equation\n"}︡

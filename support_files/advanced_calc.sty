@@ -12,10 +12,25 @@
 \usepackage{tabularx}
 \usepackage{amsmath}
 
+\usepackage{multicol}
+
 \usepackage{indentfirst}
 \parindent 5ex
 
-\newcommand{\makereporttitle}[1]{\begin{center}\Huge{#1}\end{center}}
-\newcommand{\yourname}[1]{\begin{center}#1\end{center}}
+%\newcommand{\makereporttitle}[1]{\begin{center}\Huge{#1}\end{center}}
+%\newcommand{\yourname}[1]{\begin{center}#1\end{center}}
 
-\newenvironment{report}{\vspace{1cm}}{}
+\newcommand{\graph}[1]{\noindent\includegraphics[width=9cm]{#1}}
+
+%\newenvironment{report}{\vspace{1cm}}{}
+
+%\newenvironment{calcabstract}{\begin{center}\textbf{Abstract}\\}{\end{center}}
+
+%
+% fancy abstract environment
+%
+\renewenvironment{abstract}{%
+\begin{center}\begin{minipage}{0.75\textwidth}
+\rule{\textwidth}{2pt}}
+{\par\noindent\rule{\textwidth}{2pt}\end{minipage}\end{center}}
+

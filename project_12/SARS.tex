@@ -69,7 +69,11 @@ After solving each of the three models, answer the following questions in your r
   \item Assuming that the data follow a logistic model, which is the only one of the three models to predict that the total number of cases will level off, complete the following two analysis steps.
   \begin{enumerate}
   \item Use $P(t)$ from the logistic model solution to predict the maximum number of SARS cases.
-  \item Assume that the data follow a logistic model, but not necessarily with the parameters given previously. Use Figure \ref{dailyinc} and the fact that there had been a total of 998 cases of SARS by April 10 to develop a new $P(t)$ solution and use it to predict the maximum number of SARS cases.
+  \item Assume that the data follow a logistic model, but not necessarily with the parameters given 
+  previously. Use Figure \ref{dailyinc} and the fact that there had been a total of 998 cases of SARS by 
+  April 10 to develop a new $P(t)$ solution and use it to predict the maximum number of SARS cases.
+  In order for the SAGE \verb|find_fit| function to work properly, you will need to specify a model
+  that includes a parameter for a horizontal shift.
 \end{enumerate}
 
   \item To see how well the three models worked in practice, plot the data in Table \ref{sarscases} and each of your solution curves for the three models. Be sure to label each curve with an appropriate legend and scaled axes.
